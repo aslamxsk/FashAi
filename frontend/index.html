@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Fash AI – See Yourself in Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Fash AI – Upload your photo, choose your vibe, and instantly see yourself in new fashion styles with AI." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="page">
+    <!-- Hero / Landing -->
+    <header class="hero">
+      <nav class="nav">
+        <div class="logo">
+          <span class="logo-mark">🧥</span>
+          <span class="logo-text">Fash AI</span>
+        </div>
+        <button class="nav-cta" id="nav-cta">Try Your Style Now</button>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <h1>See Yourself in Style.</h1>
+          <p class="hero-tagline">
+            Upload your photo, choose your vibe, and let AI dress you in
+            editorial-quality outfits in seconds.
+          </p>
+          <ul class="hero-bullets">
+            <li>Instant outfit visualization</li>
+            <li>Personalized styling based on your preferences</li>
+            <li>No account required – just upload and try</li>
+          </ul>
+          <button class="primary-cta" id="hero-cta">
+            Try Fashion Before You Wear It
+          </button>
+          <p class="hero-note">
+            No login. No friction. Just instant fashion visualization.
+          </p>
+        </div>
+
+        <div class="hero-preview">
+          <div class="preview-card">
+            <div class="preview-labels">
+              <span class="pill">Before</span>
+              <span class="pill pill-accent">After</span>
+            </div>
+            <div class="preview-images">
+              <div class="preview-half preview-before">
+                <span class="preview-placeholder-text">Your photo</span>
+              </div>
+              <div class="preview-half preview-after">
+                <span class="preview-placeholder-text">AI-styled look</span>
+              </div>
+            </div>
+            <p class="preview-caption">
+              Fash AI preserves your identity while transforming your outfit,
+              lighting, and fashion vibe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main App Section -->
+    <main class="main" id="app-section">
+      <section class="card upload-card">
+        <div class="card-header">
+          <h2>Try Your Style Now</h2>
+          <p>Upload a clear front-facing photo and choose your fashion preferences.</p>
+        </div>
+
+        <div class="upload-grid">
+          <!-- Upload Column -->
+          <div class="upload-column">
+            <label class="field-label">1. Upload your photo</label>
+            <div id="dropzone" class="dropzone">
+              <input type="file" id="file-input" accept="image/*" hidden />
+              <div class="dropzone-inner">
+                <p class="dropzone-title">Drag &amp; drop or click to upload</p>
+                <p class="dropzone-subtitle">
+                  Use a clear, front-facing photo with good lighting.
+                </p>
+                <button type="button" class="secondary-cta" id="browse-button">
+                  Choose a photo
+                </button>
+              </div>
+            </div>
+            <ul class="guidelines">
+              <li>Face clearly visible (no heavy filters)</li>
+              <li>Single person in the frame</li>
+              <li>Good lighting and minimal obstructions</li>
+            </ul>
+            <div class="thumbnail" id="thumbnail" hidden>
+              <img id="thumbnail-img" alt="Uploaded preview" />
+            </div>
+          </div>
+
+          <!-- Style Form Column -->
+          <div class="form-column">
+            <label class="field-label">2. Choose your style</label>
+            <form id="style-form" class="form">
+              <div class="field">
+                <label for="outfit">Outfit type</label>
+                <select id="outfit" name="outfit" required>
+                  <option value="Luxury tailored suit">Luxury tailored suit</option>
+                  <option value="Modern streetwear set">Modern streetwear set</option>
+                  <option value="Minimalist casual outfit">Minimalist casual outfit</option>
+                  <option value="Red carpet evening gown">Red carpet evening gown</option>
+                  <option value="Smart casual office fit">Smart casual office fit</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="occasion">Occasion</label>
+                <select id="occasion" name="occasion">
+                  <option value="">Let Fash AI decide</option>
+                  <option value="Office">Office</option>
+                  <option value="Wedding Guest">Wedding Guest</option>
+                  <option value="Date Night">Date Night</option>
+                  <option value="Streetwear">Streetwear</option>
+                  <option value="Luxury Event">Luxury Event</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <div class="field">
+                  <label for="fit">Fit preference</label>
+                  <select id="fit" name="fit">
+                    <option value="">Natural fit</option>
+                    <option value="Slim fit">Slim fit</option>
+                    <option value="Oversized">Oversized</option>
+                    <option value="Tailored">Tailored</option>
+                    <option value="Relaxed">Relaxed</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="color">Primary colors</label>
+                  <select id="color" name="color">
+                    <option value="">Balanced tones</option>
+                    <option value="Monochrome black &amp; white">Monochrome black &amp; white</option>
+                    <option value="Earthy neutrals">Earthy neutrals</option>
+                    <option value="Bold statement colors">Bold statement colors</option>
+                    <option value="Soft pastel palette">Soft pastel palette</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="accessories">Accessories</label>
+                <input id="accessories" name="accessories" type="text"
+                  placeholder="e.g. Watch, sunglasses, layered necklaces" />
+                <small class="field-hint">
+                  Separate accessories with commas. Leave empty for a cleaner look.
+                </small>
+              </div>
+
+              <div class="field">
+                <label for="vibe">Fashion vibe</label>
+                <select id="vibe" name="vibe">
+                  <option value="">Modern fashion aesthetic</option>
+                  <option value="Confident CEO">Confident CEO</option>
+                  <option value="Effortless street style">Effortless street style</option>
+                  <option value="Minimalist creative">Minimalist creative</option>
+                  <option value="High fashion editorial">High fashion editorial</option>
+                  <option value="Romantic evening">Romantic evening</option>
+                </select>
+              </div>
+
+              <div class="field field-inline">
+                <label>
+                  <input type="checkbox" id="variation" name="variation" />
+                  Generate a unique variation with extra fabric detailing
+                </label>
+              </div>
+
+              <button type="submit" class="primary-cta full-width" id="generate-button">
+                Generate My Look
+              </button>
+
+              <p class="disclaimer">
+                By generating, you confirm you own the rights to the uploaded photo and consent to AI-based
+                transformation.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Result Section -->
+      <section class="card result-card" id="result-card" hidden>
+        <div class="card-header">
+          <h2>Your AI-Styled Look</h2>
+          <p>Download, share, or try another style.</p>
+        </div>
+
+        <div id="result-state-idle"></div>
+
+        <div class="result-body">
+          <div class="result-image-wrapper">
+            <div class="loader" id="result-loader" hidden>
+              <div class="spinner"></div>
+              <p>Transforming your look with Fash AI...</p>
+            </div>
+
+            <img id="result-image" class="result-image" alt="AI generated styled look" hidden />
+
+            <div class="result-error" id="result-error" hidden></div>
+          </div>
+
+          <div class="result-actions">
+            <button type="button" class="secondary-cta" id="try-again-button">
+              Try Another Style
+            </button>
+            <button type="button" class="primary-cta" id="download-button" disabled>
+              Download Image
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fash AI – A personal AI fashion visualization engine.</p>
+      <p class="footer-sub">
+        “See Yourself in Style.” · “Try Fashion Before You Wear It.”
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
+
